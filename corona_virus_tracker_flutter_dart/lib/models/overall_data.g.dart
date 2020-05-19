@@ -8,10 +8,10 @@ part of 'overall_data.dart';
 
 FullData _$FullDataFromJson(Map<String, dynamic> json) {
   return FullData(
-    cases: json['cases'] as String,
-    deaths: json['deaths'] as String,
-    recovered: json['recovered'] as String,
-    updated: json['updated'] as String,
+    cases: json['cases'] as int,
+    deaths: json['deaths'] as int,
+    recovered: json['recovered'] as int,
+    updated: json['updated'] as int,
   );
 }
 

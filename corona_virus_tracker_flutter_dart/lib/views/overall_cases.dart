@@ -9,8 +9,6 @@ class WorldDashboard extends StatefulWidget {
   _WorldDashboardState createState() => _WorldDashboardState();
 }
 
-
-
 class _WorldDashboardState extends State<WorldDashboard> {
   CovidService get service => GetIt.I<CovidService>();
 
@@ -29,7 +27,6 @@ class _WorldDashboardState extends State<WorldDashboard> {
     });
 
     _apiResponce = await service.getCovidData();
-    service.getCovidData();
 
     setState(() {
       _isLoading = false;
@@ -51,9 +48,7 @@ class _WorldDashboardState extends State<WorldDashboard> {
             if (_apiResponce.error) {
               return Center(child: Text(_apiResponce.errorMessage));
             }
-           return Text(_apiResponce.data.cases);
-          // Text('er');
-
+            return Text("Total cases "+(_apiResponce.data.cases).toString() + "\nTotal Deaths " +(_apiResponce.data.deaths).toString() + "\nTotal Recovered " +(_apiResponce.data.recovered).toString());
           },
         ),
       ),

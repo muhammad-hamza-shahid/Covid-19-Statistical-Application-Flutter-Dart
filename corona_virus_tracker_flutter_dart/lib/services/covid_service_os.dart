@@ -5,8 +5,7 @@ import 'package:http/http.dart' as http;
 
 class CovidService{
   static const API = 'http://api.coronastatistics.live/';
-  static const headers = {'apiKey': '3d86e02a-6205-4fff-bb74-37c6f167dd63',
-                          'Content-Type':'application/json'};
+  static const headers = {'Content-Type':'application/json'};
 
 Future<APIResponce<FullData>> getCovidData(){
   return http.get(API +'all').then((data) {

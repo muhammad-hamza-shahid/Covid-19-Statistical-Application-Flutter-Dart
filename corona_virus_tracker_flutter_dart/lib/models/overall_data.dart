@@ -5,10 +5,10 @@ part 'overall_data.g.dart';
 @JsonSerializable()
 
 class FullData {
-  String cases;
-  String deaths;
-  String recovered;
-  String updated;
+  int cases;
+  int deaths;
+  int recovered;
+  int updated;
 
   FullData({this.cases,this.deaths,this.recovered,this.updated});
 
