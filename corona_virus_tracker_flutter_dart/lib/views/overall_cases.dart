@@ -48,7 +48,18 @@ class _WorldDashboardState extends State<WorldDashboard> {
             if (_apiResponce.error) {
               return Center(child: Text(_apiResponce.errorMessage));
             }
-            return Text("Total cases "+(_apiResponce.data.cases).toString() + "\nTotal Deaths " +(_apiResponce.data.deaths).toString() + "\nTotal Recovered " +(_apiResponce.data.recovered).toString());
+
+            // Text("Total cases " +
+            //     (_apiResponce.data.cases).toString() +
+            //     "\nTotal Deaths " +
+            //     (_apiResponce.data.deaths).toString() +
+            //     "\nTotal Recovered " +
+            //     (_apiResponce.data.recovered).toString());
+            return ListView.separated(
+              itemBuilder: null,
+              separatorBuilder: null,
+              itemCount: null);
+        
           },
         ),
       ),
