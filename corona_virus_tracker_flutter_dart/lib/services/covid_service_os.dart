@@ -21,21 +21,21 @@ Future<APIResponce<FullData>> getCovidData(){
   APIResponce<FullData>(error: true,errorMessage: 'An Error Occured'));
 }
 
-Future<APIResponce<List<CountryWiseData>>> getNotesList() {
-    return http.get(API + '/notes', headers: headers).then((data) {
+Future<APIResponce<List<CountryWiseDataModel>>> getCountrywiseList() {
+    return http.get(API + 'countries').then((data) {
       if (data.statusCode == 200) {
         final jsonData = json.decode(data.body);
-        final notes = <CountryWiseData>[];
+        final records = <CountryWiseDataModel>[];
         for (var item in jsonData) {
-          notes.add(CountryWiseData.fromJson(item));
+          records.add(CountryWiseDataModel.fromJson(item));
         }
-        return APIResponce<List<CountryWiseData>>(
-          data: notes,
+        return APIResponce<List<CountryWiseDataModel>>(
+          data: records,
         );
       }
-      return APIResponce<List<CountryWiseData>>(
+      return APIResponce<List<CountryWiseDataModel>>(
           error: true, errorMessage: 'An Error Occured');
-    }).catchError((_) => APIResponce<List<CountryWiseData>>(
+    }).catchError((_) => APIResponce<List<CountryWiseDataModel>>(
         error: true, errorMessage: 'An Error Occured'));
   }
 }

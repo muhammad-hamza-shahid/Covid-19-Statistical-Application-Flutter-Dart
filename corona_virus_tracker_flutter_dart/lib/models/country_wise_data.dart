@@ -1,9 +1,11 @@
+import 'dart:ffi';
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'country_wise_data.g.dart';
 
 @JsonSerializable()
-class CountryWiseData {
+class CountryWiseDataModel {
   String country;
   int cases;
   int todayCases;
@@ -12,10 +14,10 @@ class CountryWiseData {
   int recovered;
   int active;
   int critical;
-  int casesPerOneMillion;
-  int deathsPerOneMillion;
+ // Float casesPerOneMillion;
+  //Float deathsPerOneMillion;
 
-  CountryWiseData(
+  CountryWiseDataModel(
       {this.country,
       this.cases,
       this.todayCases,
@@ -24,8 +26,9 @@ class CountryWiseData {
       this.recovered,
       this.active,
       this.critical,
-      this.casesPerOneMillion,
-      this.deathsPerOneMillion});
+     // this.casesPerOneMillion,
+     // this.deathsPerOneMillion
+     });
 
-  factory CountryWiseData.fromJson(Map<String,dynamic> item) => _$CountryWiseDataFromJson(item);
+  factory CountryWiseDataModel.fromJson(Map<String,dynamic> item) => _$CountryWiseDataFromJson(item);
 }
