@@ -50,7 +50,7 @@ Future<APIResponce<List<CountryWiseDataModel>>> getCountrywiseList() {
           data: records,
         );
       }
-      return APIResponce<CountryWiseDataModel>>(
+      return APIResponce<CountryWiseDataModel>(
           error: true, errorMessage: 'An Error Occured');
     }).catchError((_) => APIResponce<List<CountryWiseDataModel>>(
         error: true, errorMessage: 'An Error Occured'));
