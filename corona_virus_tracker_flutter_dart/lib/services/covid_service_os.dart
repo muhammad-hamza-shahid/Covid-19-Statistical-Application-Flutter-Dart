@@ -38,4 +38,21 @@ Future<APIResponce<List<CountryWiseDataModel>>> getCountrywiseList() {
     }).catchError((_) => APIResponce<List<CountryWiseDataModel>>(
         error: true, errorMessage: 'An Error Occured'));
   }
+  Future<APIResponce<CountryWiseDataModel>> getCountryData() {
+    return http.get(API + 'countries').then((data) {
+      if (data.statusCode == 200) {
+        final jsonData = json.decode(data.body);
+        final records = <CountryWiseDataModel>[];
+        for (var item in jsonData) {
+          records.add(CountryWiseDataModel.fromJson(item));
+        }
+        return APIResponce<List<CountryWiseDataModel>>(
+          data: records,
+        );
+      }
+      return APIResponce<CountryWiseDataModel>>(
+          error: true, errorMessage: 'An Error Occured');
+    }).catchError((_) => APIResponce<List<CountryWiseDataModel>>(
+        error: true, errorMessage: 'An Error Occured'));
+  }
 }
